@@ -1,1 +1,1 @@
-web: gunicorn forecaster: model
+web: gunicorn app: model
