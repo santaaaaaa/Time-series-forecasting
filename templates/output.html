@@ -1,0 +1,49 @@
+<!Doctype html>
+<html lang=en>
+    <head>
+        <link rel="stylesheet" href="/static/output.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="headbox">
+                <div class="logo"><a href="/"><img src="/static/logo.jpg" alt="Group 4" title="Back to home" width="100" height="30"></a></div>
+                <div class="title"><p>The number of available beds for the succeeding {{ndays}} days</p></div>
+            </div>
+        </header>
+        <section>
+            <span id="left">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Dates</th>
+                            <th>Number of Available Beds</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for key, value in dic.items() %}
+                    <tr id="t_content">
+                        <td> {{ key }} </td>
+                        <td> {{ value }} </td>
+                       </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </span>
+            <span id="right">
+                <div class="chart" id="jsonFormatGraph">
+                    <script>
+                        function drawPlotlyGraph(graphs) {
+                            Plotly.plot('jsonFormatGraph', graphs, {});
+                        }
+                        var graphs = {{graphJSON | safe }};
+                        drawPlotlyGraph(graphs);
+                    </script>
+                </div> 
+            </span>
+        </section>
+    </body>
+</html>

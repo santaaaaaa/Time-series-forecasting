@@ -1,0 +1,67 @@
+<!Doctype html>
+<html lang=en>
+    <head>
+        <link rel="stylesheet" href="/static/fashion.css">
+    </head>
+    <body>
+        <header>
+            <div class="headbox">
+                <div class="logo"><img src="/static/logo.jpg" alt="Group 4" title="Group 4" width="100" height="30"></div>
+                <div class="title"><p>Time Series Forecasting</p></div>
+            </div>
+        </header>
+        <section>          
+            <span id="left">
+                <article id="left_article">
+                    <h3><b><i>Hey there !</i></h3></b>
+                    <p> The efficacy of humanity is tested during unfortunate times. We humans must put our skills and techniques to use in order to create systems that would help us overcome this pandemic with minimal loss.</p>
+                    <p>Here, We have built a model that will forecast the number of available hospital beds for the requested succeeding number of days from 16th of June 2021.</p>
+                    <br>
+                    <p><em>Please enter the number of days you would like to view the forecast for.</em></p>
+                    <div class="days_input">
+                          <form action="{{url_for('output')}}" method="POST">
+                              <input type="text" name="days" placeholder="Number of days"/>
+                              <input type="submit" class="button" name ="Forecast" value="Forecast" title="Click to see the forecast"/>
+                          </form>
+                    </div>
+                </article>
+            </span>
+            <span id="right">
+                <div class="video">
+                    <video src="/static/video.mp4" type="video/mp4" controls>Sorry! Your browser does not support the video.</video>
+                    <!-- <iframe src="https://www.youtube.com/embed/JqLJ-6kIwNI/?autoplay=1&mute=1&loop=1" ></iframe> -->
+                </div>
+                <div class="container">
+                    <a href="https://www.google.com/search?q=coronavirus&rlz=1C1RXQR_enIN962IN962&sxsrf=AOaemvK2cah0iVUQQ4o5FsfknODnCfrSeQ%3A1630494418874&ei=0l4vYcLiNNjfz7sP1buc8A8&oq=coronavirus&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyCggAELEDEIMBEEMyCggAELEDEIMBEEMyBAgAEEMyBAgAEEMyDQgAELEDEIMBEMkDEEMyBQgAEJIDMgUIABCSAzIMCAAQsQMQgwEQChBDMgcIABCxAxBDOgUIABCABDoICAAQgAQQyQNKBAhBGABQzrEOWPq1DmDPuw5oAHACeACAAYIBiAHBApIBAzEuMpgBAKABAcABAQ&sclient=gws-wiz&ved=0ahUKEwjCk5SF0d3yAhXY73MBHdUdB_4Q4dUDCA4&uact=5#wptab=s:H4sIAAAAAAAAAONgVuLVT9c3NMwySk6OL8zJecRowS3w8sc9YSn9SWtOXmPU5OIKzsgvd80rySypFJLmYoOyBKX4uVB18uxi4vZITcwpyQguSSwpXsQqmJxflJ-XWJZZVFqsUAwSAwD24HAsbgAAAA" target="_blank">
+                        <img id="medi" src="/static/medi.jpg" alt="Medical" title="For more information on Covid19">
+                    </a>
+                    <article id="right_article">
+                        <p><q>We need to learn the lessons that are being shown from this virus.</q> <i>-Dr. Michael J. Ryan, WHO.</i></p>
+                    </article> 
+                </div>
+            </span>     
+        </section>
+        <footer>
+            <div class="footbox">
+                <span id="by">
+                    <small>Project by:</small>
+                </span>
+                <span id="names">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/eliyaz-manikyam-8b8660177/" title="Chect out my LinkedIn profile" target="_blank">Eliyaz Manikyam​</a> 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/melvin-thomas-t-a22903186" title="Chect out my LinkedIn profile" target="_blank">Melvin Thomas​</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/revathi-c-5021a5178" title="Chect out my LinkedIn profile" target="_blank">Revathi C​​</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/santhosh-prabhu-488132170/" title="Chect out my LinkedIn profile" target="_blank">Santhosh Prabhu​​</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/shreya-shankarshetty-8732b0174" title="Chect out my LinkedIn profile" target="_blank">Shreya Shankarshetty​​</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/suhas-sawanth-73121b5b"title="Chect out my LinkedIn profile" target="_blank">Suhas Sawanth​​</a> 
+                </span>
+                <span id="logo2">
+                    <a href="https://www.excelr.com/blog-category/data-science" target="_blank"><img src="/static/excelr.png" alt="ExcelR Logo" title="Go to ExcelRpage" width="80" height="30"></a>
+                </span>
+                <span id="for">
+                    <small>Project for:</small>
+                </span>
+
+            </div>
+        </footer>
+    </body>
+</html>
