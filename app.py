@@ -27,10 +27,10 @@ df = np.round(df,0)
 avail_df = pd.DataFrame(df, columns=['Availability']) #Array ouput of imputer is converted in to a DataFrame
 data = data.assign(availability=avail_df['Availability']) #Then replacing the imputed column to our original dataframe
 data = data.set_index('date')
-model = SARIMAX(data.availability, order=(13,0,9)).fit()
+
 
 app = Flask(__name__)
-
+model = SARIMAX(data.availability, order=(13,0,9)).fit()
 
 @app.route('/')
 def input():
