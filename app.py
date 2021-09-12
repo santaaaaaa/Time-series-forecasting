@@ -30,7 +30,7 @@ data = data.set_index('date')
 data.index = pd.DatetimeIndex(data.index,freq='infer')
 
 app = Flask(__name__)
-model = SARIMAX(data.availability,order=(13,0,9),seasonal_order=(0,0,4,12),enforce_stationarity=False,enforce_invertibility=False).fit()
+model = SARIMAX(data.availability,order=(13,0,9),seasonal_order=(0,0,4,12),enforce_stationarity=False,enforce_invertibility=False).fit(maxiter=200)
 
 @app.route('/')
 def input():
