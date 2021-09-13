@@ -1,36 +1,16 @@
 from flask import Flask,render_template,request
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-import pickle
+import gzip, pickle, pickletools
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import json
 import plotly
 
-import numpy as np
-from sklearn.impute import KNNImputer #Imputaion
-
-data = pd.read_csv('Beds_Occupied.csv')
-data['collection_date'] = pd.to_datetime(data['collection_date'], format='%d-%m-%Y')
-def avail(beds):
-    available_beds = 900-beds
-    return available_beds
-
-data['availability']=data['Total Inpatient Beds'].apply(avail)
-data = data.drop('Total Inpatient Beds', axis = 1)
-range_dates = pd.date_range(start=data.collection_date.min(), end=data.collection_date.max())
-missing_dates = range_dates.difference(data['collection_date'])
-data = data.set_index('collection_date').reindex(range_dates).rename_axis('date').reset_index()
-imputer = KNNImputer(n_neighbors=3)
-df = imputer.fit_transform(data[['availability']])
-df = np.round(df,0)
-avail_df = pd.DataFrame(df, columns=['Availability']) #Array ouput of imputer is converted in to a DataFrame
-data = data.assign(availability=avail_df['Availability']) #Then replacing the imputed column to our original dataframe
-data = data.set_index('date')
-data.index = pd.DatetimeIndex(data.index,freq='infer')
-
 app = Flask(__name__)
-model = SARIMAX(data.availability,order=(13,0,9),seasonal_order=(0,0,4,12),enforce_stationarity=False,enforce_invertibility=False).fit(maxiter=200)
+with gzip.open('forecast_model.pkl', 'rb') as f:
+    p = pickle.Unpickler(f)
+    model = p.load()
 
 @app.route('/')
 def input():
